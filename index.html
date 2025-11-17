@@ -20,22 +20,22 @@
 </head>
 <body>
 
-  <div id="menu">
-    <label>Choisir une ville :</label>
-    <select id="city-select">
-      <option value="paris">Paris</option>
-      <option value="lyon">Lyon</option>
-      <option value="marseille">Marseille</option>
-      <option value="strasbourg">Strasbourg</option>
-    </select>
-    <button id="btn-random">Nouvelle position</button>
-  </div>
+<div id="menu">
+  <label>Choisir une ville :</label>
+  <select id="city-select">
+    <option value="paris">Paris</option>
+    <option value="lyon">Lyon</option>
+    <option value="marseille">Marseille</option>
+    <option value="strasbourg">Strasbourg</option>
+  </select>
+  <button id="btn-random">Nouvelle position</button>
+</div>
 
-  <div id="street-view"></div>
+<div id="street-view"></div>
 
-  <!-- Google Maps API avec ta clé -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOXnj4r5TsVyxgqRIkT9DkD__AKt5JUXs&callback=initialize&v=weekly" defer></script>
-  <script type="module" src="./index.js"></script>
+<!-- Google Maps API avec ta clé -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOXnj4r5TsVyxgqRIkT9DkD__AKt5JUXs&callback=initialize&v=weekly" defer></script>
+
 <script>
 let panorama;
 
@@ -47,6 +47,7 @@ const cityBounds = {
   strasbourg: { north: 48.646, south: 48.519, east: 7.828, west: 7.664 }
 };
 
+// Fonction initiale appelée par Google Maps
 function initialize() {
   panorama = new google.maps.StreetViewPanorama(
     document.getElementById("street-view")
@@ -56,6 +57,7 @@ function initialize() {
   newPosition(); // Génère une position au chargement
 }
 
+// Génère une position aléatoire
 function newPosition() {
   const city = document.getElementById("city-select").value;
   const bounds = cityBounds[city];
@@ -82,4 +84,3 @@ function newPosition() {
 
 </body>
 </html>
-
